@@ -7,7 +7,7 @@ const ACTIONS = {
   ERROR: "error",
 };
 
-const BASE_URL = "http://localhost:4000/api/events";
+const BASE_URL = "https://lit-mesa-08641.herokuapp.com/events";
 
 function reducer(state, action) {
   switch (action.type) {

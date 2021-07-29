@@ -24,22 +24,7 @@ import {
 } from "react-icons/fa";
 
 function App() {
-  // const { events, loading, error } = useFetchEvents();
-  // const [events, setEvents] = useState([]);
-  // const BASE_URL = "https://lit-mesa-08641.herokuapp.com/api/events";
-
-  // const getEvents = async () => {
-  //   try {
-  //     axios.get(BASE_URL).then((res) => setEvents(res.data.items));
-  //     console.log(events);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getEvents();
-  // }, []);
+  const { events, loading, error } = useFetchEvents();
 
   return (
     <Container>
@@ -55,7 +40,7 @@ function App() {
         </div>
         <div className="content-right">
           <FaSearch />
-          <FaInfo />
+          <FaInfo onClick={()=>console.log(events)}/>
           <img src={avatar} alt="Avatar Logo" />
         </div>
       </Header>
@@ -71,29 +56,45 @@ function App() {
             <h4>My Events</h4>
             <hr />
             <div className="cards">
-            <Cards>
+              <Cards>
                 <p className="title">Stand up Meeting</p>
                 <span>Date:</span>
-                <p><b>27/10/2021</b></p>
-                <p><b>09:00</b> am - <b>09:30</b> am</p>
+                <p>
+                  <b>27/10/2021</b>
+                </p>
+                <p>
+                  <b>09:00</b> am - <b>09:30</b> am
+                </p>
               </Cards>
               <Cards>
                 <p className="title">Stand up Meeting</p>
                 <span>Date:</span>
-                <p><b>27/10/2021</b></p>
-                <p><b>09:00</b> am - <b>09:30</b> am</p>
+                <p>
+                  <b>27/10/2021</b>
+                </p>
+                <p>
+                  <b>09:00</b> am - <b>09:30</b> am
+                </p>
               </Cards>
               <Cards>
                 <p className="title">Stand up Meeting</p>
                 <span>Date:</span>
-                <p><b>27/10/2021</b></p>
-                <p><b>09:00</b> am - <b>09:30</b> am</p>
+                <p>
+                  <b>27/10/2021</b>
+                </p>
+                <p>
+                  <b>09:00</b> am - <b>09:30</b> am
+                </p>
               </Cards>
               <Cards>
                 <p className="title">Stand up Meeting</p>
                 <span>Date:</span>
-                <p><b>27/10/2021</b></p>
-                <p><b>09:00</b> am - <b>09:30</b> am</p>
+                <p>
+                  <b>27/10/2021</b>
+                </p>
+                <p>
+                  <b>09:00</b> am - <b>09:30</b> am
+                </p>
               </Cards>
             </div>
           </div>
