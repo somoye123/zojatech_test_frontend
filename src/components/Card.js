@@ -1,6 +1,7 @@
 import React from 'react';
+import { format } from 'date-fns';
 import PropTypes from 'prop-types';
-import { Cards } from "./App.module.js";
+import { Cards } from "../App.module.js";
 
 function Card({ link, created, summary, status, startDate, endDate }) {
   return (
@@ -10,7 +11,7 @@ function Card({ link, created, summary, status, startDate, endDate }) {
             <p className="title">{ summary }</p>
             <span>Date:</span>
             <p>
-              <b>{created}</b>
+              <b>{format(new Date(created), 'MMMM dd, yyyy')}</b>
             </p>
             <p>
               {startDate} - {endDate}
