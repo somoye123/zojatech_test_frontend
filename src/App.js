@@ -9,7 +9,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Landing} />
         <Route exact path='/events' component={Events} />
-        <Route path='/' component={CatchAll} />
+        <Route path='*' exact={true} component={CatchAll} />
       </Switch>
     </Router>
   );
