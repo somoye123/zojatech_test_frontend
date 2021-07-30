@@ -20,7 +20,8 @@ function CatchAll() {
       }      
     }
     getToken();
-  })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   console.log(tokenFound)
   if(tokenFound) {
     return <Redirect to="/events"/>
