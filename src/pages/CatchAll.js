@@ -20,7 +20,7 @@ function CatchAll() {
       }      
     }
     getToken();
-  }, [])
+  })
   console.log(tokenFound)
   if(tokenFound) {
     return <Redirect to="/events"/>
