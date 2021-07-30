@@ -1,5 +1,5 @@
 // import axios from "axios";
-// import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Container, {
   Cards,
   Header,
@@ -7,7 +7,7 @@ import Container, {
   Sidebar,
   Sidebar2,
 } from "./App.module.js";
-// import useFetchEvents from "./functions/useFetchEvents.js";
+import useFetchEvents from "./functions/useFetchEvents.js";
 import logo from "./assets/calendar.png";
 import avatar from "./assets/avatar.png";
 import {
@@ -22,9 +22,22 @@ import {
   FaSearch,
   FaVideo,
 } from "react-icons/fa";
+import { authUser } from "./services/api.js";
 
 function App() {
-  const { events, loading, error } = useFetchEvents();
+  // const { events, loading, error } = useFetchEvents();
+  const [token, setToken] = useState(null);
+  useEffect(() => {
+    if(!token) {
+      const authorize = async () => {
+        const url = await authUser();
+        window.location.href = url;
+      }
+      authorize();
+    }
+  }, [])
+
+
 
   return (
     <Container>
@@ -40,7 +53,7 @@ function App() {
         </div>
         <div className="content-right">
           <FaSearch />
-          <FaInfo onClick={()=>console.log(events)}/>
+          {/* <FaInfo onClick={()=>console.log(events)}/> */}
           <img src={avatar} alt="Avatar Logo" />
         </div>
       </Header>
@@ -55,48 +68,7 @@ function App() {
           <div className="container">
             <h4>My Events</h4>
             <hr />
-            <div className="cards">
-              <Cards>
-                <p className="title">Stand up Meeting</p>
-                <span>Date:</span>
-                <p>
-                  <b>27/10/2021</b>
-                </p>
-                <p>
-                  <b>09:00</b> am - <b>09:30</b> am
-                </p>
-              </Cards>
-              <Cards>
-                <p className="title">Stand up Meeting</p>
-                <span>Date:</span>
-                <p>
-                  <b>27/10/2021</b>
-                </p>
-                <p>
-                  <b>09:00</b> am - <b>09:30</b> am
-                </p>
-              </Cards>
-              <Cards>
-                <p className="title">Stand up Meeting</p>
-                <span>Date:</span>
-                <p>
-                  <b>27/10/2021</b>
-                </p>
-                <p>
-                  <b>09:00</b> am - <b>09:30</b> am
-                </p>
-              </Cards>
-              <Cards>
-                <p className="title">Stand up Meeting</p>
-                <span>Date:</span>
-                <p>
-                  <b>27/10/2021</b>
-                </p>
-                <p>
-                  <b>09:00</b> am - <b>09:30</b> am
-                </p>
-              </Cards>
-            </div>
+            <Cards />
           </div>
         </Body>
         <Sidebar2>
